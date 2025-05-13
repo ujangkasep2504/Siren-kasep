@@ -1,0 +1,37 @@
+name = "budakbaong-siren"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-05-23"
+minify = true
+workers_dev = true
+
+
+routes = [
+
+  { pattern = "top.budakbaong.my.id", custom_domain = true },
+  { pattern = "ava.game.naver.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "quiz.int.vidio.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "graph.instagram.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "help.viu.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "support.zoom.us.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "cache.netflix.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "graph.facebook.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "dogseechew.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "zaintest.vuclip.com.top.budakbaong.my.id", custom_domain = true },
+]
+
+[[kv_namespaces]]
+binding = "SIREN"
+id = "9825ae32c0ba45c3b906002a26a30f71"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install -q worker-build && worker-build --dev" }
+
+[vars]
+UUID = "80b640ff-031d-4294-8b9d-12a41d976444"
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/noirtea/refs/heads/main/web/index.html"
+SUB_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/noirtea/refs/heads/main/web/sub.html"
+LINK_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/noirtea/refs/heads/main/web/link.html"
+CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/noirtea/refs/heads/main/web/converter.html"
