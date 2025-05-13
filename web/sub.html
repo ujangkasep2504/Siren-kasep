@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCONIGTO-MODE || Subscription</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/AFRcloud/BG/main/icons8-film-noir-80.png"/>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* This style is now in common.css */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="tech-detail tech-detail-1"></div>
+            <div class="tech-detail tech-detail-2"></div>
+            <div class="tech-detail tech-detail-3"></div>
+            
+            <div class="title-container">
+                <h1 class="title">INCONIGTO - MODE</h1>
+                <p class="subtitle">Advanced Subscription Link Generator</p>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="/" class="nav-button">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="sub" class="nav-button active">
+                    <i class="fas fa-rss"></i> Subscription
+                </a>
+                <a href="link" class="nav-button">
+                    <i class="fas fa-link"></i> Link Generator
+                </a>
+                <a href="converter" class="nav-button">
+                    <i class="fas fa-exchange-alt"></i> Converter
+                </a>
+            </div>
+            
+            <form id="subLinkForm">
+                <div class="form-group">
+                    <label for="configType">PROTOCOL TYPE</label>
+                    <select id="configType" class="form-control" required>
+                        <option value="vless">VLESS</option>
+                        <option value="vmess">VMESS</option>
+                        <option value="trojan">TROJAN</option>
+                        <option value="shadowsocks">SHADOWSOCKS</option>
+                        <option value="mix">MIX (ALL PROTOCOLS)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="formatType">FORMAT TYPE</label>
+                    <select id="formatType" class="form-control" required>
+                        <option value="v2ray">Link V2RAY</option>
+                        <option value="clash">Proxy_Provider CLASH</option>
+                    </select>
+                </div>
+                
+                <div class="form-group uuid-group">
+                    <label for="uuid">UUID</label>
+                    <input type="text" id="uuid" class="form-control" value="80b640ff-031d-4294-8b9d-12a41d976444" required>
+                    <button type="button" id="generateUuid" class="uuid-generate">GENERATE</button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bugType">BUG TYPE</label>
+                    <select id="bugType" class="form-control" required>
+                        <option value="default">DIRECT</option>
+                        <option value="non-wildcard">NON-WILDCARD</option>
+                        <option value="wildcard">WILDCARD</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mainDomain">MAIN DOMAIN <span class="info-badge">SELECT</span></label>
+                    <select id="mainDomain" class="form-control" required>
+                        <!-- Will be populated from MainDomains array -->
+                    </select>
+                </div>
+                
+                <div id="customBugContainer" class="form-group custom-bug-container">
+                    <label for="customBug">CUSTOM BUG</label>
+                    <input type="text" id="customBug" class="form-control" placeholder="Example : memek.com, contol.com, tytyd.me">
+                    <div class="select-info">Pisah Dengan Koma Jika Ingin Banyak BUG sekaligus</div>
+                    <div class="select-info">Supported Wildcard : ava.game.naver.com, quiz.int.vidio.com, zaintest.vuclip.com, support.zoom.us, cache.netflix.com</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tls">TLS ENCRYPTION</label>
+                    <select id="tls" class="form-control">
+                        <option value="true">ENABLED</option>
+                        <option value="false">DISABLED</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">REGION FILTER</label>
+                        <select id="country" class="form-control">
+                            <option value="">Loading regions...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="limit">QUANTITY</label>
+                        <input type="number" id="limit" class="form-control" min="1" max="50" value="5" placeholder="Max 50" required>
+                    </div>
+                </div>
+                
+                <div class="form-group validation-group">
+                    <label class="form-check">
+                        <input type="checkbox" id="validateProxies" class="form-check-input" checked>
+                        <span class="form-check-label">Filter ProxyIP ACTIVE Untuk Subscription?</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn">Generate Configuration</button>
+            </form>
+            
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <div class="loading-text typing">Fetching proxy data and generating configs...</div>
+            </div>
+            
+            <div id="validation-status" class="validation-status">
+                <div>Validating proxies... <span id="validation-count">0/0</span></div>
+                <div class="validation-progress">
+                    <div id="validation-bar" class="validation-bar"></div>
+                </div>
+                <div class="validation-stats">
+                    <div>Valid: <span id="valid-count">0</span></div>
+                    <div>Invalid: <span id="invalid-count">0</span></div>
+                </div>
+            </div>
+            
+            <div id="error-message" class="error-message"></div>
+            
+            <div id="result" class="result">
+                <div class="result-header">
+                    <div class="result-title">CONFIGURATION GENERATED</div>
+                </div>
+                <div class="output-container">
+                    <textarea id="output" class="output" readonly></textarea>
+                </div>
+                <button id="copyLink" class="copy-btn">
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    COPY CONFIGURATION
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="circuit-line circuit-line-1"></div>
+        <div class="circuit-line circuit-line-2"></div>
+        <div class="circuit-line circuit-line-3"></div>
+        <div class="circuit-line circuit-line-4"></div>
+        <div class="circuit-dot circuit-dot-1"></div>
+        <div class="circuit-dot circuit-dot-2"></div>
+        <div class="circuit-dot circuit-dot-3"></div>
+        <div class="circuit-dot circuit-dot-4"></div>
+        
+        <div class="footer-logo">INCONIGTO-MODE</div>
+        <div class="footer-powered">POWERED BY SECURE TECHNOLOGY</div>
+        <div class="footer-social">
+            <a href="https://t.me/Noir7R" class="social-link" target="_blank">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.968.193 1.798.919 2.286 1.61.516 3.275 1.009 4.654 1.472.846 1.467 1.618 2.796 2.503 4.532.545 1.062 1.587 2.739 3.19 2.756 1.26.033 2.052-.6 3.542-1.95a142.91 142.91 0 0 1 2.43-2.053c1.686-.142 3.382-.284 5.12-.436.887-.075 1.92-.262 2.405-1.226.436-.877-.015-1.35-.48-1.874l-3.881-4.369-5.481-6.174S22.185 2.128 21.198 2.433z"></path>
+                    <path d="M18.167 7.068c.237 1.632-1.162 6.872-1.766 8.849"></path>
+                </svg>
+                @Noir7R
+            </a>
+        </div>    
+        <div class="footer-social">
+            <a href="https://t.me/inconigto_Mode" class="social-link" target="_blank">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.968.193 1.798.919 2.286 1.61.516 3.275 1.009 4.654 1.472.846 1.467 1.618 2.796 2.503 4.532.545 1.062 1.587 2.739 3.19 2.756 1.26.033 2.052-.6 3.542-1.95a142.91 142.91 0 0 1 2.43-2.053c1.686-.142 3.382-.284 5.12-.436.887-.075 1.92-.262 2.405-1.226.436-.877-.015-1.35-.48-1.874l-3.881-4.369-5.481-6.174S22.185 2.128 21.198 2.433z"></path>
+                    <path d="M18.167 7.068c.237 1.632-1.162 6.872-1.766 8.849"></path>
+                </svg>
+                @inconigto_Mode
+            </a>
+            <a href="https://t.me/InconigtoMode" class="social-link" target="_blank">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.849 1.09c-.42.147-.99.332-1.473.901-.728.968.193 1.798.919 2.286 1.61.516 3.275 1.009 4.654 1.472.846 1.467 1.618 2.796 2.503 4.532.545 1.062 1.587 2.739 3.19 2.756 1.26.033 2.052-.6 3.542-1.95a142.91 142.91 0 0 1 2.43-2.053c1.686-.142 3.382-.284 5.12-.436.887-.075 1.92-.262 2.405-1.226.436-.877-.015-1.35-.48-1.874l-3.881-4.369-5.481-6.174S22.185 2.128 21.198 2.433z"></path>
+                    <path d="M18.167 7.068c.237 1.632-1.162 6.872-1.766 8.849"></path>
+                </svg>
+                @InconigtoMode
+            </a>
+        </div>
+        <div class="footer-year">© <span id="current-year"></span></div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/common.js"></script>
+    <script src="js/sub.js"></script>
+</body>
+</html>
