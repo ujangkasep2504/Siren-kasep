@@ -12,7 +12,7 @@ let selectedProxy = null
 const defaultProxyUrl = "https://raw.githubusercontent.com/AFRcloud/ProxyList/refs/heads/main/ProxyList.txt"
 
 const serverDomains = ["top.budakbaog.my.id"]
-let selectedServerDomain = serverDomains[0] // Default to first domain
+let selectedServerDomain = serverDomains[2] // Default to first domain
 const defaultUUID = "80b640ff-031d-4294-8b9d-12a41d976444"
 const itemsPerPage = 10
 let currentPage = 1
@@ -28,6 +28,8 @@ const bugOptions = [
   { value: "help.viu.com", label: "help.viu.com" },
   { value: "dogseechew.com", label: "dogseechew.com" },
   { value: "instagram.com", label: "instagram.com" },
+  { value: "zaintest.vuclip.com", label: "zaintest.vuclip.com" },
+  { value: "graph.instagram.com", label: "graph.instagram.com" },
   { value: "manual", label: "Type Manual" },
 ]
 
