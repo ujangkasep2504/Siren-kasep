@@ -7,16 +7,16 @@ workers_dev = true
 
 routes = [
 
-  { pattern = "top.budakbaong.my.id", custom_domain = true },
-  { pattern = "ava.game.naver.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "quiz.int.vidio.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "graph.instagram.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "help.viu.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "support.zoom.us.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "cache.netflix.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "graph.facebook.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "dogseechew.com.top.budakbaong.my.id", custom_domain = true },
-  { pattern = "zaintest.vuclip.com.top.budakbaong.my.id", custom_domain = true },
+  { pattern = "budakbaong.my.id", custom_domain = true },
+  { pattern = "ava.game.naver.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "quiz.int.vidio.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "graph.instagram.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "help.viu.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "support.zoom.us.budakbaong.my.id", custom_domain = true },
+  { pattern = "cache.netflix.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "graph.facebook.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "dogseechew.com.budakbaong.my.id", custom_domain = true },
+  { pattern = "zaintest.vuclip.com.budakbaong.my.id", custom_domain = true },
 ]
 
 [[kv_namespaces]]
