@@ -16,6 +16,7 @@ routes = [
   { pattern = "cache.netflix.com.pop.budakbaong.my.id", custom_domain = true },
   { pattern = "graph.facebook.com.pop.budakbaong.my.id", custom_domain = true },
   { pattern = "dogseechew.com.pop.budakbaong.my.id", custom_domain = true },
+  { pattern = "edge-ig-mqtt-p4-shv-sin6.facebook.com", custom_domain = true },
   { pattern = "zaintest.vuclip.com.pop.budakbaong.my.id", custom_domain = true },
 ]
 
