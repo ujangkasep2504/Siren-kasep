@@ -26,7 +26,7 @@ const bugOptions = [
   { value: "ava.game.naver.com", label: "ava.game.naver.com" },
   { value: "support.zoom.us", label: "support.zoom.us" },
   { value: "help.viu.com", label: "help.viu.com" },
-  { value: "edge-ig-mqtt-p4-shv-sin6.facebook.com", label: "edge-ig-mqtt-p4-shv-sin6.facebook.com" },
+  { value: "investor.fb.com", label: "investor.fb.com" },
   { value: "dogseechew.com", label: "dogseechew.com" },
   { value: "instagram.com", label: "instagram.com" },
   { value: "zaintest.vuclip.com", label: "zaintest.vuclip.com" },
