@@ -15,7 +15,7 @@ const serverDomains = [
   "pop.budakbaong.my.id",
   "a.budakbaong.my.id",
   "b.budakbaong.my.id",
-  "c.budakbaong.my.id",
+  "uk81.biz.id",
   "manual"
 ]
 let selectedServerDomain = serverDomains[5] // Default to first domain
