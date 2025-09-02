@@ -1,4 +1,4 @@
-name = "budakbaong2-siren"
+name = "anun3-siren"
 main = "build/worker/shim.mjs"
 compatibility_date = "2024-05-23"
 minify = true
@@ -7,17 +7,19 @@ workers_dev = true
 
 routes = [
 
-  { pattern = "pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "ava.game.naver.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "quiz.int.vidio.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "graph.instagram.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "help.viu.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "support.zoom.us.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "cache.netflix.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "graph.facebook.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "dogseechew.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "investor.fb.com.pop.budakbaong.my.id", custom_domain = true },
-  { pattern = "zaintest.vuclip.com.pop.budakbaong.my.id", custom_domain = true },
+  { pattern = "wc.anun3.biz.id", custom_domain = true },
+  { pattern = "ava.game.naver.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "quiz.int.vidio.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "graph.instagram.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "help.viu.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "support.zoom.us.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "cache.netflix.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "graph.facebook.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "dogseechew.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "investor.fb.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "vplay.iflix.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "grabacademyportal.grab.com.wc.anun3.biz.id", custom_domain = true },
+  { pattern = "zaintest.vuclip.com.wc.anun3.biz.id", custom_domain = true },
 ]
 
 [[kv_namespaces]]
@@ -32,7 +34,7 @@ build = { command = "cargo install -q worker-build && worker-build --dev" }
 
 [vars]
 UUID = "80b640ff-031d-4294-8b9d-12a41d976444"
-MAIN_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/topnoir1/refs/heads/master/web/index.html"
-SUB_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/topnoir1/refs/heads/master/web/sub.html"
-LINK_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/topnoir1/refs/heads/master/web/link.html"
-CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/budakbaong02/topnoir1/refs/heads/master/web/converter.html"
+MAIN_PAGE_URL = "https://raw.githubusercontent.com/ujangkasep2504/Siren-kasep/refs/heads/master/web/index.html"
+SUB_PAGE_URL = "https://raw.githubusercontent.com/ujangkasep2504/Siren-kasep/refs/heads/master/web/sub.html"
+LINK_PAGE_URL = "https://raw.githubusercontent.com/ujangkasep2504/Siren-kasep/refs/heads/master/web/link.html"
+CONVERTER_PAGE_URL = "https://raw.githubusercontent.com/ujangkasep2504/Siren-kasep/refs/heads/master/web/converter.html"
