@@ -7,10 +7,10 @@ const CONFIG = {
   proxyListUrl: "https://raw.githubusercontent.com/AFRcloud/ProxyList/refs/heads/main/ProxyList.txt",
   apiCheckUrl: "https://afrcloud.dpdns.org/",
   mainDomains: [
-   "pop.budakbaong.my.id",
-  "a.budakbaong.my.id",
-  "b.budakbaong.my.id",
-  "c.budakbaong.my.id",
+   "wc.anun3.biz.id",
+  "wc1.anun3.biz.id",
+  "wc2.anun3.biz.id",
+  "wc3.anun3.biz.id",
   "manual"
 ],
   defaultUuid: "80b640ff-031d-4294-8b9d-12a41d976444",
