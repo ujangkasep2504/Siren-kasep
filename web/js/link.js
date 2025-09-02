@@ -12,10 +12,10 @@ let selectedProxy = null
 const defaultProxyUrl = "https://raw.githubusercontent.com/AFRcloud/ProxyList/refs/heads/main/ProxyList.txt"
 
 const serverDomains = [
-  "pop.budakbaong.my.id",
-  "a.budakbaong.my.id",
-  "b.budakbaong.my.id",
-  "uk81.biz.id",
+  "wc.anun3.biz.id",
+  "wc1.anun3.biz.id",
+  "wc2.anun3.biz.id",
+  "wc3.anun3.biz.id",
   "manual"
 ]
 let selectedServerDomain = serverDomains[5] // Default to first domain
